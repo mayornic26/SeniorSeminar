@@ -20,3 +20,13 @@ Schedule a Student for 5 Session (giving as many of their choices as possible)
 - Daily github commits are expected (for each class day minimum)
 - 
 Submission is GitHub folder with all files needed to run/execute your program.
+
+Place people into their first choice if they do not get their first choice put them into their second
+choice
+If you do not get your first choice use the 7 other extra free classes to put the people who did not get
+into their first choice into their first choice
+The 7 extra slots are optimization
+The first 18 are to place them in their ideal choice
+Place them by the time that they registered; if they do not register place them wherever
+3D array list for the sessions
+Sessions would have attributes; number of people
