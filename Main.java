@@ -1,23 +1,15 @@
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
-  public static void main(String[] args) {
-    
-    
-    try {
-      File myObj = new File("SrSeminar_RawData.csv");
-      Scanner myReader = new Scanner(myObj);
-      while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
-        System.out.println(data);
-      }
-      myReader.close();
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
-      
+	public static void main(String[] args) {
+        SeniorSeminar p1 = new SeniorSeminar();
+        
+        p1.PrintStudentList();
+        p1.tallySessions();
+        p1.PrintPresenterID();
     }
-  }
 }
