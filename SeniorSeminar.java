@@ -13,7 +13,7 @@ public class SeniorSeminar {
     
     try {
 	
-      File myObj = new File("SrSeminar_RawData.csv");
+      File myObj = new File("SrSeminar_DataNico.csv");
       Scanner myReader = new Scanner(myObj);
        myReader.nextLine();
      
