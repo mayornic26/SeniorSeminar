@@ -1,4 +1,3 @@
-
 public class Student {
 
 	//instance variables
@@ -51,7 +50,7 @@ public class Student {
 		}
 	
 		//return student and their list choices print
-        public String getListChoice() {
+         public String getListChoice() {
             return "The choices of the student: " + name + " are - Choice 1: " + c1 + ", Choice 2: " + c2 + ", Choice 3: " + c3 + ", Choice4: " + c4 + ", Choice 5: " + c5;
         }
-    }
+   }
