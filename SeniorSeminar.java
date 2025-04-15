@@ -48,15 +48,7 @@ public class SeniorSeminar {
 	  
 	}  
 	
-	//method for priting the session
-  public void PrintPresenterID(){
-   for(int i = 0; i < presenterList.size(); i++)
-		{
-			System.out.println(presenterList.get(i).printSession());
-		}
-	}
-	
- //tally for amount of selected chocies for each session
+	 //tally for amount of selected chocies for each session
   public void tallySessions(){
      for(int i = 0; i < presenterList.size(); i++){
        int counter = 0;
@@ -73,6 +65,34 @@ public class SeniorSeminar {
 	    }
   	 presenterList.get(i).setCount(counter);
 	}
+		int n = presenterList.get(i).printSession();
+		//sorting for the tallys
+			for (int j = 1; j <= 18; j++)
+            { 
+              int possibleIndex = j;
+              while (possibleIndex > 0 && n < presenterList[possibleIndex - 1])
+              {
+				  if(n < presenterList[possibleIndex - 1]) {
+                     insertCompare++; 
+                   }
+                  presenterList[possibleIndex] = presenterList[possibleIndex - 1];
+                  possibleIndex--;
+              }
+              presenterList[possibleIndex] = n;
+              }
+              
+              for(int w = 0; w <= 18; w++){
+				System.out.print(presenterList[w] + " ");
+			}
   }
-	  
+  
+	
+	//method for priting the session
+  public void PrintPresenterID(){
+	 int numP = presenterList.size();
+      for(int i = 0; i < numP; i++)
+		{
+			System.out.println(presenterList.get(i).printSession());
+		}
+	}
 }
