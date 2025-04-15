@@ -1,4 +1,5 @@
 
+
 public class Sessions {
 
 	//instance variables
@@ -35,16 +36,15 @@ public class Sessions {
         }
         
         //return session anme and the ID and the presenter for the sessions
-        public String printSession() {
-            return "Session Name: " + sessionName + ", Session ID: " + sessionID + ", Presenter: " + Presenter + "- Total Selected: " + count + "-";
+        public int printSession() {
+			return count;
+            //return "Session ID: " + sessionID + " Count: " + count;
         }
         
         //counter for tally
         public void setCount(int number){
 			count = number;
 		}
-      
-      
 
     }
-
+	
