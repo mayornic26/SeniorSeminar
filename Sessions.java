@@ -7,6 +7,7 @@ public class Sessions {
 	   private int sessionID;
 	   private String Presenter;
 	   private int count; 
+	   private int placePeople;
         
         //constructor	
         public Sessions (String session, int ID, String personPresenter)
@@ -16,6 +17,7 @@ public class Sessions {
             sessionID = ID;
             Presenter = personPresenter;
             count = 0;
+            placePeople = placePpl;
         }
         
     //getters and setters
@@ -35,10 +37,13 @@ public class Sessions {
             return Presenter;
         }
         
+        public String getplacepeople(){
+			return placePeople;
+		}
+        
         //return session anme and the ID and the presenter for the sessions
-        public int printSession() {
-			return count;
-            //return "Session ID: " + sessionID + " Count: " + count;
+        public String printSession() {
+			return "Session ID: " + sessionID + " Count: " + count;
         }
         
         //counter for tally
