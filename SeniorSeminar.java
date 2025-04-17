@@ -65,13 +65,24 @@ public class SeniorSeminar {
   	 presenterList.get(i).setCount(counter);
 	}
   }
-	
+  
 	//method for priting the session
   public void PrintPresenterID(){
-	 int numP = presenterList.size();
-      for(int i = 0; i < numP; i++)
+      for(int i = 0; i < presenterList.size(); i++)
 		{
 			System.out.println(presenterList.get(i).printSession());
 		}
 	}
+		
+   public void placeIng(){
+	 for(int i = 0; i < presenterList.size(); i++){
+		for(int j = 0; j < studentList.size(); j++){
+		   presenterList.get(i).getplacePeople();
+		   if(presenterList.get(i).getplacePeople() < 16){
+				presenterList.get(i).placePeople(studentList);
+				}	
+			}
+		}
+	}
 }
+
