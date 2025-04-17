@@ -1,4 +1,3 @@
-
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
@@ -65,27 +64,7 @@ public class SeniorSeminar {
 	    }
   	 presenterList.get(i).setCount(counter);
 	}
-		int n = presenterList.get(i).printSession();
-		//sorting for the tallys
-			for (int j = 1; j <= 18; j++)
-            { 
-              int possibleIndex = j;
-              while (possibleIndex > 0 && n < presenterList[possibleIndex - 1])
-              {
-				  if(n < presenterList[possibleIndex - 1]) {
-                     insertCompare++; 
-                   }
-                  presenterList[possibleIndex] = presenterList[possibleIndex - 1];
-                  possibleIndex--;
-              }
-              presenterList[possibleIndex] = n;
-              }
-              
-              for(int w = 0; w <= 18; w++){
-				System.out.print(presenterList[w] + " ");
-			}
   }
-  
 	
 	//method for priting the session
   public void PrintPresenterID(){
