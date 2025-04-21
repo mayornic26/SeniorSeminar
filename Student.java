@@ -10,7 +10,7 @@ public class Student {
         private int c4;
         private int c5;
         
-      // Variables to indicate if the student has been scheduled for each of their chocies
+      // Variables to tell if the student has been scheduled for each of their chocies
         
         private boolean S1;
         private boolean S2;
@@ -26,7 +26,7 @@ public class Student {
         private boolean timeslot4;
         private boolean timeslot5;
         
-        // varibles to indicate if the student will attend the class on the 2nd run 
+        // varibles to tell if the student will attend the class on the 2nd run 
         
         private boolean secondary1;
         private boolean secondary2;
@@ -44,11 +44,14 @@ public class Student {
             c3 = choiceThree;
             c4 = choiceFour;
             c5 = choiceFive;
+            
+            //set them all to false to turn true when they are placed
             S1 = false;
             S2 = false;
             S3 = false;
             S4 = false;
             S5 = false;
+            
             timeslot1 = false;
             timeslot2 = false;
             timeslot3 = false;
@@ -61,15 +64,13 @@ public class Student {
             secondary5 = false;     
         }
         
-    //getters and setters
         
         //get name
         public String getName() {
             return name;
         }
-        
-        //get the choices 
-        
+             
+        //getchoice checks the numbers to the choices of the classes
         public int getchoice(int number) {
 		   if(number ==1  ) {
 			   return c1;
@@ -85,6 +86,7 @@ public class Student {
 			   	
 		} 
 		
+		//secondary run for it
 		 public boolean issessionscheduled(int number) {
 		   if(number == 1 ) {
 			   return S1;
@@ -100,6 +102,7 @@ public class Student {
 			   	
 		} 
 
+		//turns the falses into true if sessionNumber = choice one and if they are scheduled
 		public boolean is_scheduled(int sessionNumber){
 			return ((sessionNumber == c1) && S1) 
 			|| ((sessionNumber == c2) && S2)
@@ -144,7 +147,7 @@ public class Student {
 				S5 = value;
 			}
 		}
-		
+	
 		public void mark_as_scheduled_secondary(boolean value,int slot){
 			if (slot == 1) {
 			   S1 = value;
@@ -192,10 +195,5 @@ public class Student {
 				return timeslot5;
 			} else return false;
 		}
-		
 	
-		//return student and their list choices print
-        public String getListChoice() {
-            return "The choices of the student: " + name + " are - Choice 1: " + c1 + ", Choice 2: " + c2 + ", Choice 3: " + c3 + ", Choice4: " + c4 + ", Choice 5: " + c5;
-        }
     }
