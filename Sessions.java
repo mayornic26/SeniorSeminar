@@ -66,7 +66,11 @@ public class Sessions {
         }
         
         public String printSessionDetails(){
-			return sessionID + ": Session Name: " + sessionName + " Presenter " + Presenter;
+			return sessionID + ": Session Name: " + sessionName + "." + " Presenter " + Presenter;
+		}	
+		
+		public String printSessionNames(){
+			return "Sessions: " + sessionName;
 		}
         
         //counter for tally
