@@ -231,7 +231,7 @@ public class SeniorSeminar {
 						int currentSession = presenterList.get(k).getsessionID();
 						for(int l = 0; l < studentList.size(); l++){
 							if(studentList.get(l).is_scheduled_primary(currentSession)){
-								System.out.println("            " + studentList.get(l).getName()); //print student name
+							    System.out.println("            " + studentList.get(l).getName()); //print student name
 							}
 						}
 					}
@@ -268,12 +268,43 @@ public class SeniorSeminar {
 			 int session_number =  studentList.get(i).getchoice(1);
 			 for (int k = 0; k < presenterList.size();k++) {
 			    if (presenterList.get(k).getsessionID() == session_number) {
-					
-					
-					
+					System.out.println(presenterList.get(i).printSessionNames());
 				}	 
 			 }
 		  }  
+		  if (studentList.get(i).is_scheduled(2)) {
+			 int session_number =  studentList.get(i).getchoice(2);
+			 for (int l = 0; l < presenterList.size();l++) {
+			    if (presenterList.get(l).getsessionID() == session_number) {
+					System.out.println(presenterList.get(i).printSessionNames());
+				}	 
+			 }
+		  }  
+		  if (studentList.get(i).is_scheduled(3)) {
+			 int session_number =  studentList.get(i).getchoice(3);
+			 for (int m = 0; m < presenterList.size();m++) {
+			    if (presenterList.get(m).getsessionID() == session_number) {
+					System.out.println(presenterList.get(i).printSessionNames());
+				}	 
+			 }
+		  }  
+		  if (studentList.get(i).is_scheduled(4)) {
+			 int session_number =  studentList.get(i).getchoice(4);
+			 for (int n = 0; n < presenterList.size();n++) {
+			    if (presenterList.get(n).getsessionID() == session_number) {
+					System.out.println(presenterList.get(i).printSessionNames());
+				}	 
+			 }
+		  }  
+		  if (studentList.get(i).is_scheduled(5)) {
+			 int session_number = studentList.get(i).getchoice(5);
+			 for (int o = 0; o < presenterList.size(); o++) {
+			    if (presenterList.get(o).getsessionID() == session_number) {
+					System.out.println(presenterList.get(i).printSessionNames());
+				}	 
+			 }
+		  }  
+		  
 	  }	    
    }
 }
