@@ -1,14 +1,14 @@
-**
+/**
  * Sessions.java
  * 
  * Author: Nico Mayoral
  * Date: 4/21/25
  * 
  * Preconditons: Sessions Class and Objects
- * Postconditions: Generates a Sessions object containing session Name, Session ID, Presenter, number of people who choose it, timeslor, room number, alternate timeslot
+ * Postconditions: Generates a Sessions object containing session Name, Session ID, Presenter, number of people who choose it, timeslots, room number, alternate timeslot
  *                 and alternate room number
- * Purpose:  This object allows to store the information for each session that will be taught.  The program using the Sessions class is able to store multiple attendees
- * in an array structure for each retrieval.
+ * Purpose:  This object allows to store the information for each session that will be taught. The program uses the Sessions class 
+ * to store multiple attendees in an array structure for each retrieval.
  * 
  */
 
