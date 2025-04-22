@@ -1,3 +1,21 @@
+
+/**
+ * SeniorSeminar.java
+ * 
+ * Author: Nico Mayoral
+ * Date: 4/21/25
+ * Preconditons: SeniorSeminar  Class and Object
+ * Purpose: Students and sessions are loaded from a CSV file into studentList and presenterList.
+ * - Each session is tallied for popularity based on student choices.
+ * - Sessions are scheduled into timeslots and rooms (primary and secondary offerings).
+ * - Students are assigned to their highest-priority available session choices, avoiding time conflicts.
+ * - Class rosters and student schedules can be printed to show final scheduling results.
+ * 
+ * Purpose: To manage and the scheduling of senior seminar sessions based on student preferences,
+ * optomizing satisfaction while avoiding session and timeslot conflicts.
+ * 
+ */
+
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
@@ -256,7 +274,8 @@ public class SeniorSeminar {
 			}
 		}
    }
-   //does not work yet
+   
+   
    public void PrintRosterforStudent () {
 	  System.out.println();
 	  System.out.println("Roster for each class");
@@ -264,47 +283,20 @@ public class SeniorSeminar {
 	   
 	  for (int i = 0; i < studentList.size();i++) {
 		  System.out.println(studentList.get(i).getName());
-		  if (studentList.get(i).is_scheduled(1)) {
-			 int session_number =  studentList.get(i).getchoice(1);
-			 for (int k = 0; k < presenterList.size();k++) {
-			    if (presenterList.get(k).getsessionID() == session_number) {
-					System.out.println(presenterList.get(i).printSessionNames());
-				}	 
-			 }
-		  }  
-		  if (studentList.get(i).is_scheduled(2)) {
-			 int session_number =  studentList.get(i).getchoice(2);
-			 for (int l = 0; l < presenterList.size();l++) {
-			    if (presenterList.get(l).getsessionID() == session_number) {
-					System.out.println(presenterList.get(i).printSessionNames());
-				}	 
-			 }
-		  }  
-		  if (studentList.get(i).is_scheduled(3)) {
-			 int session_number =  studentList.get(i).getchoice(3);
-			 for (int m = 0; m < presenterList.size();m++) {
-			    if (presenterList.get(m).getsessionID() == session_number) {
-					System.out.println(presenterList.get(i).printSessionNames());
-				}	 
-			 }
-		  }  
-		  if (studentList.get(i).is_scheduled(4)) {
-			 int session_number =  studentList.get(i).getchoice(4);
-			 for (int n = 0; n < presenterList.size();n++) {
-			    if (presenterList.get(n).getsessionID() == session_number) {
-					System.out.println(presenterList.get(i).printSessionNames());
-				}	 
-			 }
-		  }  
-		  if (studentList.get(i).is_scheduled(5)) {
-			 int session_number = studentList.get(i).getchoice(5);
-			 for (int o = 0; o < presenterList.size(); o++) {
-			    if (presenterList.get(o).getsessionID() == session_number) {
-					System.out.println(presenterList.get(i).printSessionNames());
-				}	 
-			 }
-		  }  
-		  
+		  for (int j = 1; j <= 5;j++) {
+			  int session_number =  studentList.get(i).getchoice(j);
+			  
+			  for (int k = 0; k < presenterList.size();k++) {
+			     if (presenterList.get(k).getsessionID() == session_number) {
+					System.out.print(presenterList.get(k).printSessionNames());
+					if (studentList.get(i).is_scheduled(j)) {
+					   System.out.println(" - Scheduled");	
+					} else { 
+					   System.out.println(" - Not Scheduled");
+					}
+				  }	
+			  } 
+		  }	  			  
 	  }	    
    }
 }
