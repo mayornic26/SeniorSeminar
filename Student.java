@@ -1,4 +1,18 @@
 
+/**
+ * Student.java
+ * 
+ * Author: Nico Mayoral
+ * Date: 4/21/25
+ * Preconditons: Student Class and Object
+ * Postconditions: Generates a Student objects containing choices for classes, scheduled for student, schedules for second run, and checks to see if they are scheduled. 
+ * 
+ * Purpose: This object allows to store the information of the student and their choices. The program uses the Student 
+ * class to store the selections of the courses in an array and the student names
+ 
+ * 
+ */
+ 
 public class Student {
 
 	//instance variables
@@ -133,7 +147,7 @@ public class Student {
 		
 		
 		//setters
-		
+		//checks to see if the choice has been selected making it true
 		public void mark_as_scheduled_primary(boolean value,int slot){
 			if (slot == 1) {
 			   S1 = value;
@@ -147,7 +161,8 @@ public class Student {
 				S5 = value;
 			}
 		}
-	
+		
+	   //the class has been scheduled on the alternate scheudle 
 		public void mark_as_scheduled_secondary(boolean value,int slot){
 			if (slot == 1) {
 			   S1 = value;
@@ -167,7 +182,7 @@ public class Student {
 			}
 		}
 		
-
+		//set at what time the class is going to be taught
 		public void settimeslot(boolean value,int slot){
 			if (slot == 1) {
 			   timeslot1 = value;
@@ -182,6 +197,7 @@ public class Student {
 			}
 		}
 			
+		// Checks to see if the student is booked for that time in class
 		public boolean istimeslotbooked(int slot){
 			if (slot == 1) {
 			   return timeslot1;
