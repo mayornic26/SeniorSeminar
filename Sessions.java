@@ -10,9 +10,8 @@
  * Purpose:  This object allows to store the information for each session that will be taught. The program uses the Sessions class 
  * to store multiple attendees in an array structure for each retrieval.
  * 
- */
-
-/* Sessions Class:  Creates the structure for Sessions for the use of storing each session and its attributes including session Name, Session ID, Presenter, number of people who choose it, timeslor, room number, alternate timeslot
+ * 
+ * Sessions Class:  Creates the structure for Sessions for the use of storing each session and its attributes including session Name, Session ID, Presenter, number of people who choose it, timeslot, room number, alternate timeslot
  *                 and alternate room number .   It can be used to be stored in an ArrayList by the program using the class
  */
 
