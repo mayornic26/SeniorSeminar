@@ -1,4 +1,5 @@
 
+
 /**
  * SeniorSeminar.java
  * 
@@ -98,8 +99,6 @@ public class SeniorSeminar {
            presenterList.set(possibleIndex,Sessions_temp);
       }
   // End of sorting)
-  	 
-  	 
 	}
   }
   
@@ -238,7 +237,7 @@ public class SeniorSeminar {
    public void PrintRosterPerSessions () {
 	   System.out.println("Roster of all Sessions");
 	   System.out.println();
-	   
+	   //first 18
 	   for(int i = 1; i <= number_of_rooms; i++){
 			for(int j = 1; j <= number_of_timeslots; j++){
 				for(int k = 0; k < presenterList.size(); k++){
@@ -256,6 +255,7 @@ public class SeniorSeminar {
 				}
 			}
 		}
+		//second time
 	   for(int i = 1; i <= number_of_rooms; i++){
 			for(int j = 1; j <= number_of_timeslots; j++){
 				for(int k = 0; k < presenterList.size(); k++){
@@ -274,8 +274,8 @@ public class SeniorSeminar {
 			}
 		}
    }
-   
-   
+   //needs to print the schedules they have not the ones in their exel
+   /*
    public void PrintRosterforStudent () {
 	  System.out.println();
 	  System.out.println("Roster for each class");
@@ -288,15 +288,11 @@ public class SeniorSeminar {
 			  
 			  for (int k = 0; k < presenterList.size();k++) {
 			     if (presenterList.get(k).getsessionID() == session_number) {
-					System.out.print(presenterList.get(k).printSessionNames());
-					if (studentList.get(i).is_scheduled(j)) {
-					   System.out.println(" - Scheduled");	
-					} else { 
-					   System.out.println(" - Not Scheduled");
-					}
+					System.out.println(presenterList.get(k).printSessionNames());
 				  }	
 			  } 
 		  }	  			  
 	  }	    
    }
+   */
 }
