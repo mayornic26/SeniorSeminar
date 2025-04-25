@@ -77,7 +77,7 @@ public class SeniorSeminar {
 		  }  
 	    }
   	 presenterList.get(i).setCount(counter);
-  	 // Begin to sort presenterList descending based on popularity
+  	 // begin to sort presenterList descending based on popularity
 	
      int numberofpresenters = presenterList.size();
 	  //start from the second element and move through it
@@ -97,7 +97,7 @@ public class SeniorSeminar {
            }
            presenterList.set(possibleIndex,Sessions_temp);
       }
-  // End of sorting  	 
+  // end of sorting  	 
 	}
   }
   
@@ -135,15 +135,15 @@ public class SeniorSeminar {
 		  else capacity_available = false; //makes it false when you assign the 5 rooms for the 5 timeslots 
 	  }
 		
-	  //Since each class is assigned to a room and timeslot now schedule the students
+	  //since each class is assigned to a room and timeslot now schedule the students
 	  
 	  for(int i = 0; i < presenterList.size(); i++){   // For each class, find up to 16 students who are not scheduled in the timeslot 
 		 timeslot = presenterList.get(i).gettimeslot(); // Get sessions main timeslot
 		 int sessionID = presenterList.get(i).getsessionID(); // Get session ID
 		 
-		  //Finding one student that pciked the session and still has room in their schedule.
-		  // Go through their top 5 choices, check if this session matches and their timeslot is free.
-		  //If the sessionID lines up with their first chocie and it is not scheudled their 1 set it 
+		  //finding one student that pciked the session and still has room in their schedule.
+		  // go through their top 5 choices, check if this session matches and their timeslot is free.
+		  //if the sessionID lines up with their first chocie and it is not scheudled their 1 set it 
 		  for (int j = 1;j <= max_per_classroom;j++) {
 		      boolean found_student = false;
 		      for (int k = 0; k < studentList.size() && !found_student; k++) {
@@ -189,7 +189,7 @@ public class SeniorSeminar {
 			
       }
 	  
-	  // Proceed to schedule the students in the secondary offering of the classes for those that has not been scheduled yet
+	  //proceed to schedule the students in the secondary offering of the classes for those that has not been scheduled yet
 	  
 	    for(int i = 0; i < presenterList.size(); i++){   // For each class, find up to 16 students who are not scheduled in the timeslot 
 		 timeslot = presenterList.get(i).get_alt_timeslot(); // Alternate timeslot for this session
@@ -263,6 +263,7 @@ public class SeniorSeminar {
 				}
 			}
 		}
+		//printing the rosters for the secondary run
 	   for(int i = 1; i <= number_of_rooms; i++){
 			for(int j = 1; j <= number_of_timeslots; j++){
 				for(int k = 0; k < presenterList.size(); k++){
