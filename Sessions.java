@@ -1,128 +1,224 @@
+
 /**
- * Sessions.java
+ * Student.java
  * 
  * Author: Nico Mayoral
  * Date: 4/21/25
+ * Preconditons: Student Class and Object
+ * Postconditions: Generates a Student objects containing choices for classes, scheduled for student, schedules for second run, and checks to see if they are scheduled. 
  * 
- * Preconditons: Sessions Class and Objects
- * Postconditions: Generates a Sessions object containing session Name, Session ID, Presenter, number of people who choose it, timeslots, room number, alternate timeslot
- *                 and alternate room number
- * Purpose:  This object allows to store the information for each session that will be taught. The program uses the Sessions class 
- * to store multiple attendees in an array structure for each retrieval.
+ * Purpose: This object allows to store the information of the student and their choices. The program uses the Student 
+ * class to store the selections of the courses in an array and the student names
+ 
  * 
- * 
- * Sessions Class:  Creates the structure for Sessions for the use of storing each session and its attributes including session Name, Session ID, Presenter, number of people who choose it, timeslot, room number, alternate timeslot
- *                 and alternate room number .   It can be used to be stored in an ArrayList by the program using the class
  */
+ 
+public class Student {
 
-public class Sessions {
-
-	   //Attributes to store for each session
-	   private String sessionName;
-	   private int sessionID;
-	   private String Presenter;
-	   private int count; 
-	   private int timeslot;
-	   private int roomnumber;
-	   private int alt_timeslot;
-	   private int alt_roomnumber;  
+	//instance variables
+        private String name;  // name of the student
+    // five choices of classes
+        private int c1;
+        private int c2;
+        private int c3;
+        private int c4;
+        private int c5; 
         
-        //constructor for the class
-        public Sessions (String session, int ID, String personPresenter)
-   
+          // Variables to tell if the student has been scheduled for each of their chocies
+         //no sessions are scheduled at start
+        private boolean S1;
+        private boolean S2;
+        private boolean S3;
+        private boolean S4;
+        private boolean S5;
+       
+       // varibles to tell per class which timeslot is scheduled
+       // No timeslots are booked to start
+        private boolean timeslot1;
+        private boolean timeslot2;
+        private boolean timeslot3;
+        private boolean timeslot4;
+        private boolean timeslot5;
+        
+        // varibles to tell if the student will attend the class on the 2nd run     
+        private boolean secondary1;
+        private boolean secondary2;
+        private boolean secondary3;
+        private boolean secondary4;
+        private boolean secondary5;
+        
+        
+    //constructor	
+        public Student (String studentName, int choiceOne, int choiceTwo, int choiceThree, int choiceFour, int choiceFive)
         {
-			sessionName = session;
-            sessionID = ID;
-            Presenter = personPresenter;
-            count = 0;
-            timeslot = 0;
-            roomnumber = 0;
-            alt_timeslot = 0;
-            alt_roomnumber = 0;         
+            name = studentName;
+            c1 = choiceOne; 
+            c2 = choiceTwo;
+            c3 = choiceThree;
+            c4 = choiceFour;
+            c5 = choiceFive;
+            
+            // To start no sessions are scheduled
+            S1 = false;
+            S2 = false;
+            S3 = false;
+            S4 = false;
+            S5 = false;
+            
+             // No timeslots are booked to start
+            timeslot1 = false;
+            timeslot2 = false;
+            timeslot3 = false;
+            timeslot4 = false;
+            timeslot5 = false;  
+             
+             // No secondary placements to start     
+            secondary1 = false;
+            secondary2 = false;
+            secondary3 = false;
+            secondary4 = false;
+            secondary5 = false;     
         }
         
-        //getter method to obtain the session name
-        public String getsessionName(){
-			return sessionName;
+        
+        //get name
+        public String getName() {
+            return name;
+        }
+             
+        //getchoice sets the numbers to the choices of the classes
+        public int getchoice(int number) {
+		   if(number == 1) {
+			   return c1; //sets the number 1 to c1 which is B in exel
+		   } else if (number == 2) {  //second choice
+			   return c2;    
+	       } else if (number == 3) {
+			   return c3;   
+		   } else if (number == 4) {
+	           return c4;
+	       } else if (number == 5) {
+			  return c5; 
+		   }  else return 0; //dosnt work
+			   	
+		} 
+		
+		//secondary run for it
+		 public boolean issessionscheduled(int number) {
+		   if(number == 1 ) {
+			   return S1;
+		   } else if (number == 2) {
+			   return S2;   
+	       } else if (number == 3) {
+			   return S3;   
+		   } else if (number == 4) {
+	           return S4;
+	       } else if (number == 5) {
+			  return S5; 
+		   }  else return false;
+			   	
+		} 
+
+		//turns the falses into true if the sessionID matches one of the students choices
+		//and is primary or secondary
+		public boolean is_scheduled(int sessionNumber){
+			return ((sessionNumber == c1) && S1) 
+			|| ((sessionNumber == c2) && S2)
+			|| ((sessionNumber == c3) && S3)
+			|| ((sessionNumber == c4) && S4)
+			|| ((sessionNumber == c5) && S5);
+			
 		}
 		
-		//getter method to obtain the time slot
-		public int gettimeslot(){
-			return timeslot;
+		// returns true if the session is scheduled as the students primary (not secondary).
+		public boolean is_scheduled_primary(int sessionNumber){
+			return ((sessionNumber == c1) && S1 && !secondary1) 
+			|| ((sessionNumber == c2) && S2 && !secondary2)
+			|| ((sessionNumber == c3) && S3 && !secondary3)
+			|| ((sessionNumber == c4) && S4 && !secondary4)
+			|| ((sessionNumber == c5) && S5 && !secondary5);
+			
+		}
+		
+		//returns true if the session is scheduled as the students secondary offering.
+		public boolean is_scheduled_secondary(int sessionNumber){
+			return ((sessionNumber == c1) && S1 && secondary1) 
+			|| ((sessionNumber == c2) && S2 && secondary2)
+			|| ((sessionNumber == c3) && S3 && secondary3)
+			|| ((sessionNumber == c4) && S4 && secondary4)
+			|| ((sessionNumber == c5) && S5 && secondary5);
+			
+		}
+		
+		
+		
+		//setters
+		//checks to see if the choice has been selected making it true
+		//makes one of the students 5 choices as scheudled in the primary offering
+		public void mark_as_scheduled_primary(boolean value,int slot){
+			if (slot == 1) {
+			   S1 = value;
+			} else if (slot == 2) {
+				S2 = value;
+			} else if (slot == 3) {
+				S3 = value;
+			} else if (slot == 4) {
+				S4 = value;
+			} else if (slot == 5) {
+				S5 = value;
+			}
+		}
+		
+	   //the class has been scheduled on the alternate scheudle 
+	   ////makes one of the students 5 choices as scheudled in the secondary offering
+		public void mark_as_scheduled_secondary(boolean value,int slot){
+			if (slot == 1) {
+			   S1 = value;
+			   secondary1 = true;
+			} else if (slot == 2) {
+				S2 = value;
+				secondary2 = true;
+			} else if (slot == 3) {
+				S3 = value;
+				secondary3 = true;
+			} else if (slot == 4) {
+				S4 = value;
+				secondary4 = true;
+			} else if (slot == 5) {
+				S5 = value;
+				secondary5 = true;
+			}
+		}
+		
+		//set at what time the class is going to be taught
+		//blocks out one of the student’s five timeslots in their personal schedule.
+		public void settimeslot(boolean value,int slot){
+			if (slot == 1) {
+			   timeslot1 = value;
+			} else if (slot == 2) {
+				timeslot2 = value;
+			} else if (slot == 3) {
+				timeslot3 = value;
+			} else if (slot == 4) {
+				timeslot4 = value;
+			} else if (slot == 5) {
+				timeslot5 = value;
+			}
+		}
+			
+		// Checks to see if the student is booked for that time in class
+		//checks whether the students scheudle already has that timeslot filled.
+		public boolean istimeslotbooked(int slot){
+			if (slot == 1) {
+			   return timeslot1;
+			} else if (slot == 2) {
+				return timeslot2;
+			} else if (slot == 3) {
+				return timeslot3;
+			} else if (slot == 4) {
+				return timeslot4;
+			} else if (slot == 5) {
+				return timeslot5;
+			} else return false;
 		}
 	
-	
-		//getter method to obtain the room number	
-		public int getroomnumber(){
-			return roomnumber;
-		}
-		
-		//getter method to obtain the alternate time slot
-		public int get_alt_timeslot(){
-			return alt_timeslot;
-		}
-
-		//getter method to obtain the alternate room number			
-		public int get_alt_roomnumber(){
-			return alt_roomnumber;
-		}
-		
-		//getter method to obtain the session ID	
-        public int getsessionID() {
-            return sessionID;
-        }
-        
-		//getter method to obtain the presenter	
-        public String getPresenter() {
-            return Presenter;
-        }
-        
-        
-        //return session name and the ID and the presenter for the sessions
-        public String printSession() {
-			return "Session ID: " + sessionID + " Count: " + count;
-        }
-        
-        //return session details
-        public String printSessionDetails(){
-			return sessionID + ": Session Name: " + sessionName + "." + " Presenter " + Presenter;
-		}	
-		
-		//return session name
-		public String printSessionNames() {
-			return "Sessions: " + sessionName;
-		}
-        
-        //setter method for the counter of how many people chose the session
-        public void setCount(int number) {
-			count = number;
-		}
-		
-		// getter method to ontain the count number               
-        public int getCount() {
-			return count;
-		}
-		
-		// setter method for timeslot   
-		public void settimeslot(int slot) {
-			timeslot = slot;
-		}
-
-		// setter method for room number 
-		public void setroomnumber(int room){
-			roomnumber = room;
-		}
-
-		// setter method for alternate timeslot   
-		public void set_alt_timeslot(int slot){
-			alt_timeslot = slot;
-		}
-		
-		// setter method for alternate room number  
-		public void set_alt_roomnumber(int room){
-			alt_roomnumber = room;
-		}
-
-
     }
-	
